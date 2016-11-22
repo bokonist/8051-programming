@@ -9,7 +9,7 @@
 		MOV A, #0F ; if no borrow was set, it means resulting decimal was not a number. 0F signifies failure
 		SJMP SET; unconditional jump to set result step (SET).
 STR:	ADD A,#0A; //restore the value of A to it's decimal equivalent before testing.
-SET:	MOV @DPTR,A; //set the result to DPTR
+SET:	MOVX @DPTR,A; //set the result to DPTR
 EXIT:	SJMP EXIT
 
 ; execute this and then check address location 4500 for the result. 0F means failure.
